@@ -53,6 +53,18 @@
     <ClCompile Include="..\source\xendynamicprocessor.cpp">
       <Filter>source</Filter>
     </ClCompile>
+    <ClCompile Include="..\library\WDL\WDL\jnetlib\asyncdns.cpp">
+      <Filter>library\WDL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\library\WDL\WDL\jnetlib\connection.cpp">
+      <Filter>library\WDL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\library\WDL\WDL\jnetlib\httpget.cpp">
+      <Filter>library\WDL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\library\WDL\WDL\jnetlib\util.cpp">
+      <Filter>library\WDL</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\main.hpp" />

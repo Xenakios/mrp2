@@ -19,6 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\library\WDL\WDL\jnetlib\asyncdns.cpp" />
+    <ClCompile Include="..\library\WDL\WDL\jnetlib\connection.cpp" />
+    <ClCompile Include="..\library\WDL\WDL\jnetlib\httpget.cpp" />
+    <ClCompile Include="..\library\WDL\WDL\jnetlib\util.cpp" />
     <ClCompile Include="..\library\WDL\WDL\lice\lice.cpp" />
     <ClCompile Include="..\library\WDL\WDL\lice\lice_arc.cpp" />
     <ClCompile Include="..\library\WDL\WDL\lice\lice_line.cpp" />
@@ -125,13 +129,13 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(VisualStudioDir)\Projects\$(SolutionName)\$(MSBuildProjectDefaultTargets)\$(PlatformTarget) $(Configuration)\</OutDir>
-    <TargetName>reaper_MyReaperPlugin_x$(PlatformArchitecture)</TargetName>
+    <TargetName>reaper_mrp2_x$(PlatformArchitecture)</TargetName>
     <IntDir>$(OutDir)</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(VisualStudioDir)\Projects\$(SolutionName)\$(MSBuildProjectDefaultTargets)\$(PlatformTarget) $(Configuration)\</OutDir>
-    <TargetName>reaper_MyReaperPlugin_x$(PlatformArchitecture)</TargetName>
+    <TargetName>reaper_mrp2_x$(PlatformArchitecture)</TargetName>
     <IntDir>$(OutDir)</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
