@@ -19,15 +19,15 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\library\WDL\WDL\jnetlib\asyncdns.cpp" />
-    <ClCompile Include="..\library\WDL\WDL\jnetlib\connection.cpp" />
-    <ClCompile Include="..\library\WDL\WDL\jnetlib\httpget.cpp" />
-    <ClCompile Include="..\library\WDL\WDL\jnetlib\util.cpp" />
-    <ClCompile Include="..\library\WDL\WDL\lice\lice.cpp" />
-    <ClCompile Include="..\library\WDL\WDL\lice\lice_arc.cpp" />
-    <ClCompile Include="..\library\WDL\WDL\lice\lice_line.cpp" />
-    <ClCompile Include="..\library\WDL\WDL\lice\lice_textnew.cpp" />
-    <ClCompile Include="..\library\WDL\WDL\win32_utf8.c" />
+    <ClCompile Include="..\..\WDL\WDL\jnetlib\asyncdns.cpp" />
+    <ClCompile Include="..\..\WDL\WDL\jnetlib\connection.cpp" />
+    <ClCompile Include="..\..\WDL\WDL\jnetlib\httpget.cpp" />
+    <ClCompile Include="..\..\WDL\WDL\jnetlib\util.cpp" />
+    <ClCompile Include="..\..\WDL\WDL\lice\lice.cpp" />
+    <ClCompile Include="..\..\WDL\WDL\lice\lice_arc.cpp" />
+    <ClCompile Include="..\..\WDL\WDL\lice\lice_line.cpp" />
+    <ClCompile Include="..\..\WDL\WDL\lice\lice_textnew.cpp" />
+    <ClCompile Include="..\..\WDL\WDL\win32_utf8.c" />
     <ClCompile Include="..\main.cpp" />
     <ClCompile Include="..\source\lice_control.cpp" />
     <ClCompile Include="..\source\mrpexamplewindows.cpp" />
