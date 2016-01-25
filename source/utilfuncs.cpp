@@ -1,6 +1,6 @@
-#include "utilfuncs.h"
-#include "WDL/WDL/lice/lice.h"
-#include "reaper_plugin/reaper_plugin_functions.h"
+#include "header/utilfuncs.h"
+#include "WDL/lice/lice.h"
+#include "reaper_plugin_functions.h"
 
 readbg::~readbg()
 {

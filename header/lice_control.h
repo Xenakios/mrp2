@@ -2,16 +2,16 @@
 
 #ifdef _WIN32
 #include <windows.h>
-#include "WDL/WDL/win32_utf8.h"
+#include "WDL/win32_utf8.h"
 #else
-#include "WDL/WDL/swell/swell.h"
+#include "WDL/swell/swell.h"
 #endif
 
 class MRPWindow;
 
-#include "WDL/WDL/lice/lice.h"
-#include "WDL/WDL/lice/lice_text.h"
-#include "reaper_plugin/reaper_plugin_functions.h"
+#include "WDL/lice/lice.h"
+#include "WDL/lice/lice_text.h"
+#include "reaper_plugin_functions.h"
 #include <memory>
 #include <vector>
 #include <functional>

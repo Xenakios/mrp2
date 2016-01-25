@@ -1,10 +1,10 @@
-#include "mrpwincontrols.h"
-#include "mrpwindows.h"
-#include "utilfuncs.h"
+#include "header/mrpwincontrols.h"
+#include "header/mrpwindows.h"
+#include "header/utilfuncs.h"
 #ifdef WIN32
 #include "Commctrl.h"
 #else
-#include "WDL/WDL/swell/swell-dlggen.h"
+#include "WDL/swell/swell-dlggen.h"
 #endif
 
 extern HINSTANCE g_hInst;

@@ -2,9 +2,6 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="..\main.cpp" />
-    <ClCompile Include="..\source\MyFirstClass.cpp">
-      <Filter>source</Filter>
-    </ClCompile>
     <ClCompile Include="..\library\WDL\WDL\lice\lice.cpp">
       <Filter>library\WDL\Lice</Filter>
     </ClCompile>
@@ -68,9 +65,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\main.hpp" />
-    <ClInclude Include="..\header\MyFirstClass.hpp">
-      <Filter>header</Filter>
-    </ClInclude>
     <ClInclude Include="resource.h" />
     <ClInclude Include="..\reascript.hpp" />
     <ClInclude Include="..\header\lice_control.h">

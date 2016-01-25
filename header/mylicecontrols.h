@@ -1,7 +1,7 @@
 #pragma once
 
-#include "lice_control.h"
-#include "envelope_model.h"
+#include "header/lice_control.h"
+#include "header/envelope_model.h"
 
 class MRPWindow;
 

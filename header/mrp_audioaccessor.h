@@ -1,7 +1,7 @@
 #pragma once
 
-#include "WDL/WDL/lice/lice.h"
-#include "reaper_plugin/reaper_plugin_functions.h"
+#include "WDL/lice/lice.h"
+#include "reaper_plugin_functions.h"
 #include "utilfuncs.h"
 #include <memory>
 #include <vector>

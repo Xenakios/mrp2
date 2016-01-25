@@ -1,5 +1,5 @@
-#include "mrp_pcm_source.h"
-#include "utilfuncs.h"
+#include "header/mrp_pcm_source.h"
+#include "header/utilfuncs.h"
 
 PCM_source * MRP_PCMSource::Duplicate()
 {
