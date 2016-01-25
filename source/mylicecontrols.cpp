@@ -1,4 +1,3 @@
-
 #include "header/mylicecontrols.h"
 #include "header/utilfuncs.h"
 #include "WDL/lice/lice.h"
