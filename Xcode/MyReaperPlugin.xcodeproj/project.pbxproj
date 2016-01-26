@@ -401,12 +401,9 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
-					$SRCROOT/../header,
-					$SRCROOT/../source,
-					$SRCROOT/../library,
-					$SRCROOT/../library/WDL/WDL/swell,
 					$SRCROOT/../,
 					$SRCROOT,
+					$WDL_ROOT,
 				);
 				INSTALL_PATH = /;
 				LD_DYLIB_INSTALL_NAME = reaper_MyReaperPlugin.dylib;
@@ -415,6 +412,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				STRIP_INSTALLED_PRODUCT = NO;
+				WDL_ROOT = /Users/elan/Desktop/WDL;
 			};
 			name = Debug;
 		};
@@ -457,12 +455,9 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
-					$SRCROOT/../header,
-					$SRCROOT/../source,
-					$SRCROOT/../library,
-					$SRCROOT/../library/WDL/WDL/swell,
 					$SRCROOT/../,
 					$SRCROOT,
+					$WDL_ROOT,
 				);
 				INSTALL_PATH = /;
 				LD_DYLIB_INSTALL_NAME = reaper_MyReaperPlugin.dylib;
@@ -471,6 +466,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				STRIP_INSTALLED_PRODUCT = NO;
+				WDL_ROOT = /Users/elan/Desktop/WDL;
 			};
 			name = Release;
 		};

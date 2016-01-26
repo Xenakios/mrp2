@@ -260,7 +260,7 @@ WinCheckBox::WinCheckBox(MRPWindow* parent, std::string text, bool initval) : Wi
 	m_hwnd = CreateWindow("BUTTON", text.c_str(), BS_CHECKBOX, 0, 0, 10, 10, parent->getWindowHandle(),
 		(HMENU)g_control_counter, g_hInst, 0);
 #else
-	m_hwnd = SWELL_MakeCheckBox(text.c_str(), g_control_counter, 0, 0, 10, 10, 0)
+	m_hwnd = SWELL_MakeCheckBox(text.c_str(), g_control_counter, 0, 0, 10, 10, 0);
 	SetParent(m_hwnd, parent->getWindowHandle());
 #endif
 	SendMessage(m_hwnd, WM_SETFONT, (WPARAM)g_defaultwincontrolfont, TRUE);

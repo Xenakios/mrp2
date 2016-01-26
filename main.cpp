@@ -278,7 +278,7 @@ extern "C"
 			if (error_count > 0)
 			{
 				char errbuf[256];
-				sprintf(errbuf, "Failed to load %d expected API function(s)", error_count);
+				sprintf(errbuf, "Failed to load %d expected REAPER API function(s), try updating REAPER.", error_count);
 				MessageBox(g_parent, errbuf, "MRP extension error", MB_OK);
 				return 0;
 			}
