@@ -274,6 +274,19 @@ bool WinCheckBox::getState()
 		return SendMessage(m_hwnd, BM_GETCHECK, 0, 0);
 	return 0.0;
 }
+bool WinCheckBox::handleMessage(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam)
+{
+	if (msg == WM_COMMAND && LOWORD(wparam) == m_control_id
+		&& HIWORD(wparam) == BN_CLICKED && GenericNotifyCallback)
+	{
+		if (getState()==true)
+			GenericNotifyCallback(GenericNotifications::Checked);
+		else
+			GenericNotifyCallback(GenericNotifications::Unchecked);
+		return true;
+	}
+	return false;
+}
 void WinCheckBox::setState(bool state) 
 {
 	SendMessage(m_hwnd, BM_SETCHECK, 0, (LPARAM)state);

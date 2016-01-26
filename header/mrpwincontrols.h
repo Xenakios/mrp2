@@ -65,7 +65,9 @@ enum class GenericNotifications
 	AfterManipulation,
 	BeforeTask,
 	DuringTask,
-	AfterTask
+	AfterTask,
+	Checked,
+	Unchecked
 };
 
 class WinControl
@@ -145,6 +147,7 @@ public:
 	std::string getText();
 	void setState(bool state);
 	bool getState();
+	bool handleMessage(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam);
 };
 
 class WinLineEdit : public WinControl
