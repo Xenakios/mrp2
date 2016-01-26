@@ -1,6 +1,5 @@
-
-#include "reascriptgui.h"
-#include "mylicecontrols.h"
+#include "header/reascriptgui.h"
+#include "header/mylicecontrols.h"
 #include <regex>
 
 extern HWND g_parent;

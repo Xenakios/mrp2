@@ -1,7 +1,7 @@
-#include "lice_control.h"
-#include "mrpwindows.h"
+#include "header/lice_control.h"
+#include "header/mrpwindows.h"
 #include <unordered_map>
-#include "utilfuncs.h"
+#include "header/utilfuncs.h"
 #include <string>
 
 std::unordered_map<HWND, LiceControl*> g_controlsmap;

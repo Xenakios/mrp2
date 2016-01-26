@@ -1,10 +1,10 @@
 #pragma once
 
-#include "lice_control.h"
-#include "mrpwindows.h"
+#include "header/lice_control.h"
+#include "header/mrpwindows.h"
 #include <vector>
 #include <memory>
-#include "mrp_audioaccessor.h"
+#include "header/mrp_audioaccessor.h"
 
 class volume_analysis_data_point
 {

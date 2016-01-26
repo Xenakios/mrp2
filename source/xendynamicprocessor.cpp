@@ -1,6 +1,6 @@
-#include "xendynamicsprocessor.h"
-#include "WDL/WDL/db2val.h"
-#include "picojson/picojson.h"
+#include "header/xendynamicsprocessor.h"
+#include "WDL/db2val.h"
+#include "library/picojson/picojson.h"
 #include <fstream>
 
 VolumeAnalysisControl::VolumeAnalysisControl(MRPWindow* parent) : LiceControl(parent)

@@ -1,9 +1,8 @@
-
-#include "mylicecontrols.h"
-#include "utilfuncs.h"
-#include "WDL/WDL/lice/lice.h"
-#include "WDL/WDL/lineparse.h"
-#include "reaper_plugin/reaper_plugin_functions.h"
+#include "header/mylicecontrols.h"
+#include "header/utilfuncs.h"
+#include "WDL/lice/lice.h"
+#include "WDL/lineparse.h"
+#include "reaper_plugin_functions.h"
 #include <cmath>
 
 bool g_popupmenushowing = false;

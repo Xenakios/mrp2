@@ -1,11 +1,11 @@
-#include "WDL/WDL/lice/lice.h"
-#include "reaper_plugin/reaper_plugin_functions.h"
+#include "WDL/lice/lice.h"
+#include "reaper_plugin_functions.h"
 
 #include <string>
 #include <functional>
 #include <vector>
 
-#include "reaper_function_helper.h"
+#include "header/reaper_function_helper.h"
 
 std::vector<function_entry> g_functions;
 

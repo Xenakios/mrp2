@@ -1,10 +1,10 @@
-#include "mrpwincontrols.h"
-#include "mrpwindows.h"
-#include "utilfuncs.h"
+#include "header/mrpwincontrols.h"
+#include "header/mrpwindows.h"
+#include "header/utilfuncs.h"
 #ifdef WIN32
 #include "Commctrl.h"
 #else
-#include "WDL/WDL/swell/swell-dlggen.h"
+#include "WDL/swell/swell-dlggen.h"
 #endif
 
 extern HINSTANCE g_hInst;
@@ -253,6 +253,42 @@ std::string WinLabel::getText()
 	GetWindowText(m_hwnd, buf, 1024);
 	return std::string(buf);
 }
+
+
+WinCheckBox::WinCheckBox(MRPWindow* parent, std::string text, bool initval) : WinControl(parent) {
+#ifdef WIN32
+	m_hwnd = CreateWindow("BUTTON", text.c_str(), BS_CHECKBOX, 0, 0, 10, 10, parent->getWindowHandle(),
+		(HMENU)g_control_counter, g_hInst, 0);
+#else
+	m_hwnd = SWELL_MakeCheckBox(text.c_str(), g_control_counter, 0, 0, 10, 10, 0);
+	SetParent(m_hwnd, parent->getWindowHandle());
+#endif
+	SendMessage(m_hwnd, WM_SETFONT, (WPARAM)g_defaultwincontrolfont, TRUE);
+	SetWindowText(m_hwnd, text.c_str());
+	ShowWindow(m_hwnd, SW_SHOW);
+	GenericNotifyCallback = [this](GenericNotifications) { };
+};
+bool WinCheckBox::getState()
+{
+	if (m_hwnd != NULL)
+		return SendMessage(m_hwnd, BM_GETCHECK, 0, 0);
+	return 0.0;
+}
+void WinCheckBox::setState(bool state) 
+{
+	SendMessage(m_hwnd, BM_SETCHECK, 0, (LPARAM)state);
+}
+void WinCheckBox::setText(std::string text)
+{
+	SetWindowText(m_hwnd, text.c_str());
+}
+std::string WinCheckBox::getText()
+{
+	char buf[1024];
+	GetWindowText(m_hwnd, buf, 1024);
+	return std::string(buf);
+}
+
 
 ReaSlider::ReaSlider(MRPWindow* parent, double initpos) : WinControl(parent)
 {

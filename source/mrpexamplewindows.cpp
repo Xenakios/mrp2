@@ -1,4 +1,4 @@
-#include "mrpexamplewindows.h"
+#include "header/mrpexamplewindows.h"
 #include <random>
 
 SimpleExampleWindow* g_simple_example_window=nullptr;

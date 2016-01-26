@@ -8,8 +8,8 @@
 #include <type_traits>
 #include <string>
 #include <vector>
-#include "WDL/WDL/lice/lice.h"
-#include "reaper_plugin/reaper_plugin_functions.h"
+#include "WDL/lice/lice.h"
+#include "reaper_plugin_functions.h"
 #ifdef WIN32
 #include "ppl.h"
 #else

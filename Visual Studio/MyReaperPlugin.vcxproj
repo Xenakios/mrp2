@@ -19,22 +19,21 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\library\WDL\WDL\jnetlib\asyncdns.cpp" />
-    <ClCompile Include="..\library\WDL\WDL\jnetlib\connection.cpp" />
-    <ClCompile Include="..\library\WDL\WDL\jnetlib\httpget.cpp" />
-    <ClCompile Include="..\library\WDL\WDL\jnetlib\util.cpp" />
-    <ClCompile Include="..\library\WDL\WDL\lice\lice.cpp" />
-    <ClCompile Include="..\library\WDL\WDL\lice\lice_arc.cpp" />
-    <ClCompile Include="..\library\WDL\WDL\lice\lice_line.cpp" />
-    <ClCompile Include="..\library\WDL\WDL\lice\lice_textnew.cpp" />
-    <ClCompile Include="..\library\WDL\WDL\win32_utf8.c" />
+    <ClCompile Include="..\..\WDL\WDL\jnetlib\asyncdns.cpp" />
+    <ClCompile Include="..\..\WDL\WDL\jnetlib\connection.cpp" />
+    <ClCompile Include="..\..\WDL\WDL\jnetlib\httpget.cpp" />
+    <ClCompile Include="..\..\WDL\WDL\jnetlib\util.cpp" />
+    <ClCompile Include="..\..\WDL\WDL\lice\lice.cpp" />
+    <ClCompile Include="..\..\WDL\WDL\lice\lice_arc.cpp" />
+    <ClCompile Include="..\..\WDL\WDL\lice\lice_line.cpp" />
+    <ClCompile Include="..\..\WDL\WDL\lice\lice_textnew.cpp" />
+    <ClCompile Include="..\..\WDL\WDL\win32_utf8.c" />
     <ClCompile Include="..\main.cpp" />
     <ClCompile Include="..\source\lice_control.cpp" />
     <ClCompile Include="..\source\mrpexamplewindows.cpp" />
     <ClCompile Include="..\source\mrpwincontrols.cpp" />
     <ClCompile Include="..\source\mrpwindows.cpp" />
     <ClCompile Include="..\source\mrp_pcm_source.cpp" />
-    <ClCompile Include="..\source\MyFirstClass.cpp" />
     <ClCompile Include="..\source\mylicecontrols.cpp" />
     <ClCompile Include="..\source\reaper_action_helper.cpp" />
     <ClCompile Include="..\source\reaper_function_helper.cpp" />
@@ -49,7 +48,6 @@
     <ClInclude Include="..\header\mrpwindows.h" />
     <ClInclude Include="..\header\mrp_audioaccessor.h" />
     <ClInclude Include="..\header\mrp_pcm_source.h" />
-    <ClInclude Include="..\header\MyFirstClass.hpp" />
     <ClInclude Include="..\header\mylicecontrols.h" />
     <ClInclude Include="..\header\reaper_action_helper.h" />
     <ClInclude Include="..\header\reaper_function_helper.h" />
@@ -143,9 +141,9 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;NOMINMAX;_DEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_WARNINGS;REAPERAPI_NO_LICE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NOMINMAX;_CRT_SECURE_NO_WARNINGS;REAPERAPI_NO_LICE;_DEBUG;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>..\source;..\header;..\library;$(BOOST_ROOT)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\;..\library\reaper_plugin;$(WDL_ROOT)</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <StringPooling>true</StringPooling>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -170,9 +168,9 @@ xcopy /y "$(OutDir)$(TargetFileName)" "$(REAPER_DIR)\UserPlugins\"</Command>
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Full</Optimization>
-      <PreprocessorDefinitions>WIN32;NOMINMAX;_NDEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_WARNINGS;REAPERAPI_NO_LICE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NOMINMAX;_CRT_SECURE_NO_WARNINGS;REAPERAPI_NO_LICE;_NDEBUG;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>..\source;..\header;..\library;$(BOOST_ROOT)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\;..\library\reaper_plugin;$(WDL_ROOT)</AdditionalIncludeDirectories>
       <DebugInformationFormat>None</DebugInformationFormat>
       <StringPooling>true</StringPooling>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -200,9 +198,9 @@ xcopy /y "$(OutDir)$(TargetFileName)" "$(REAPER_DIR)\UserPlugins\"</Command>
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;NOMINMAX;_DEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_WARNINGS;REAPERAPI_NO_LICE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NOMINMAX;_CRT_SECURE_NO_WARNINGS;REAPERAPI_NO_LICE;_DEBUG;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>false</SDLCheck>
-      <AdditionalIncludeDirectories>..\source;..\header;..\library;$(BOOST_ROOT)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\;..\library\reaper_plugin;$(WDL_ROOT)</AdditionalIncludeDirectories>
       <IntrinsicFunctions>false</IntrinsicFunctions>
       <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
       <OmitFramePointers>false</OmitFramePointers>
@@ -239,9 +237,9 @@ xcopy /y "$(OutDir)$(TargetFileName)" "$(REAPER64_DIR)\Plugins\"</Command>
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Full</Optimization>
-      <PreprocessorDefinitions>WIN32;NOMINMAX;_NDEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_WARNINGS;REAPERAPI_NO_LICE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NOMINMAX;_CRT_SECURE_NO_WARNINGS;REAPERAPI_NO_LICE;_NDEBUG;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>..\source;..\header;..\library;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\;..\library\reaper_plugin;$(WDL_ROOT)</AdditionalIncludeDirectories>
       <IntrinsicFunctions>false</IntrinsicFunctions>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <OmitFramePointers>false</OmitFramePointers>

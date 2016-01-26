@@ -1,19 +1,17 @@
 #pragma once
 
-
-
 #ifdef _WIN32
 #include <windows.h>
-#include "WDL/WDL/win32_utf8.h"
+#include "WDL/win32_utf8.h"
 #else
-#include "WDL/WDL/swell/swell.h"
+#include "WDL/swell/swell.h"
 #endif
-#include "utilfuncs.h"
+#include "header/utilfuncs.h"
 #include <memory>
 #include <functional>
 #include <vector>
 #include <unordered_set>
-#include "mrpwindows.h"
+#include "header/mrpwindows.h"
 
 class ReaScriptWindow : public MRPWindow
 {

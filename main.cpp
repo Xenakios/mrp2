@@ -3,21 +3,21 @@
 // for another operating system (namely, OS-X)
 #ifdef _WIN32
 #include <windows.h>
-#include "WDL/WDL/win32_utf8.h"
+#include "WDL/win32_utf8.h"
 #pragma warning ( disable : 4267 ) // size_t to int
 #pragma warning ( disable : 4244 ) // double to int
 #pragma warning ( disable : 4800 ) // 'unsigned __int64': forcing value to bool 'true' or 'false' (performance warning)
 #else
-#include "WDL/WDL/swell/swell.h"
+#include "WDL/swell/swell.h"
 #endif
 
-#include "WDL/WDL/lice/lice.h"
+#include "WDL/lice/lice.h"
 #define REAPERAPI_IMPLEMENT
-#include "reaper_plugin/reaper_plugin_functions.h"
+#include "reaper_plugin_functions.h"
 
-#include "utilfuncs.h"
-#include "reaper_action_helper.h"
-#include "reaper_function_helper.h"
+#include "header/utilfuncs.h"
+#include "header/reaper_action_helper.h"
+#include "header/reaper_function_helper.h"
 
 #include <stdio.h>
 #include <string>
@@ -278,7 +278,7 @@ extern "C"
 			if (error_count > 0)
 			{
 				char errbuf[256];
-				sprintf(errbuf, "Failed to load %d expected API function(s)", error_count);
+				sprintf(errbuf, "Failed to load %d expected REAPER API function(s), try updating REAPER.", error_count);
 				MessageBox(g_parent, errbuf, "MRP extension error", MB_OK);
 				return 0;
 			}

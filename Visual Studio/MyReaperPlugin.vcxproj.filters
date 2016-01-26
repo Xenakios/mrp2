@@ -2,18 +2,6 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="..\main.cpp" />
-    <ClCompile Include="..\source\MyFirstClass.cpp">
-      <Filter>source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\library\WDL\WDL\lice\lice.cpp">
-      <Filter>library\WDL\Lice</Filter>
-    </ClCompile>
-    <ClCompile Include="..\library\WDL\WDL\lice\lice_line.cpp">
-      <Filter>library\WDL\Lice</Filter>
-    </ClCompile>
-    <ClCompile Include="..\library\WDL\WDL\lice\lice_arc.cpp">
-      <Filter>library\WDL\Lice</Filter>
-    </ClCompile>
     <ClCompile Include="..\source\lice_control.cpp">
       <Filter>source</Filter>
     </ClCompile>
@@ -28,9 +16,6 @@
     </ClCompile>
     <ClCompile Include="..\source\reascriptgui.cpp">
       <Filter>source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\library\WDL\WDL\lice\lice_textnew.cpp">
-      <Filter>library\WDL\Lice</Filter>
     </ClCompile>
     <ClCompile Include="..\source\mylicecontrols.cpp">
       <Filter>source</Filter>
@@ -47,30 +32,39 @@
     <ClCompile Include="..\source\mrp_pcm_source.cpp">
       <Filter>source</Filter>
     </ClCompile>
-    <ClCompile Include="..\library\WDL\WDL\win32_utf8.c">
-      <Filter>library\WDL</Filter>
-    </ClCompile>
     <ClCompile Include="..\source\xendynamicprocessor.cpp">
       <Filter>source</Filter>
     </ClCompile>
-    <ClCompile Include="..\library\WDL\WDL\jnetlib\asyncdns.cpp">
+    <ClCompile Include="..\..\WDL\WDL\lice\lice_textnew.cpp">
+      <Filter>library\WDL\lice</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\WDL\lice\lice_line.cpp">
+      <Filter>library\WDL\lice</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\WDL\lice\lice_arc.cpp">
+      <Filter>library\WDL\lice</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\WDL\lice\lice.cpp">
+      <Filter>library\WDL\lice</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\WDL\win32_utf8.c">
       <Filter>library\WDL</Filter>
     </ClCompile>
-    <ClCompile Include="..\library\WDL\WDL\jnetlib\connection.cpp">
-      <Filter>library\WDL</Filter>
+    <ClCompile Include="..\..\WDL\WDL\jnetlib\asyncdns.cpp">
+      <Filter>library\WDL\jnetlib</Filter>
     </ClCompile>
-    <ClCompile Include="..\library\WDL\WDL\jnetlib\httpget.cpp">
-      <Filter>library\WDL</Filter>
+    <ClCompile Include="..\..\WDL\WDL\jnetlib\connection.cpp">
+      <Filter>library\WDL\jnetlib</Filter>
     </ClCompile>
-    <ClCompile Include="..\library\WDL\WDL\jnetlib\util.cpp">
-      <Filter>library\WDL</Filter>
+    <ClCompile Include="..\..\WDL\WDL\jnetlib\httpget.cpp">
+      <Filter>library\WDL\jnetlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\WDL\jnetlib\util.cpp">
+      <Filter>library\WDL\jnetlib</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\main.hpp" />
-    <ClInclude Include="..\header\MyFirstClass.hpp">
-      <Filter>header</Filter>
-    </ClInclude>
     <ClInclude Include="resource.h" />
     <ClInclude Include="..\reascript.hpp" />
     <ClInclude Include="..\header\lice_control.h">
@@ -135,11 +129,14 @@
     <Filter Include="library\WDL">
       <UniqueIdentifier>{1859dacd-5147-4310-af71-cb12105f4aba}</UniqueIdentifier>
     </Filter>
-    <Filter Include="library\WDL\Lice">
-      <UniqueIdentifier>{da8ecdf5-15b1-42e5-a37f-e1e9631b023a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="library\picojson">
       <UniqueIdentifier>{dd1ccf13-4657-4f82-bb35-fb8c277f45d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="library\WDL\jnetlib">
+      <UniqueIdentifier>{f99c046b-3a59-4e39-b07c-d5935f6afffc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="library\WDL\lice">
+      <UniqueIdentifier>{da8ecdf5-15b1-42e5-a37f-e1e9631b023a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

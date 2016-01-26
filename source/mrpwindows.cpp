@@ -1,9 +1,9 @@
-#include "mrpwindows.h"
+#include "header/mrpwindows.h"
 #include <unordered_map>
 
 // Oh, the horror
 #ifndef WIN32
-#include "WDL/WDL/swell/swell-dlggen.h"
+#include "WDL/swell/swell-dlggen.h"
 #define IDD_EMPTYDIALOG 666
 #ifndef SWELL_DLG_SCALE_AUTOGEN
 #define SWELL_DLG_SCALE_AUTOGEN 1.7

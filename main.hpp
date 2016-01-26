@@ -1,13 +1,11 @@
 #pragma once
 
-#include "MyFirstClass.hpp"
-#include "mrpwindows.h"
-#include "mrpexamplewindows.h"
-#include "reascriptgui.h"
-#include "utilfuncs.h"
-#include "lice_control.h"
-#include "mrp_pcm_source.h"
-#include "xendynamicsprocessor.h"
-#include "mrp_audioaccessor.h"
-#include "WDL/WDL/jnetlib/httpget.h"
-
+#include "header/mrpwindows.h"
+#include "header/mrpexamplewindows.h"
+#include "header/reascriptgui.h"
+#include "header/utilfuncs.h"
+#include "header/lice_control.h"
+#include "header/mrp_pcm_source.h"
+#include "header/xendynamicsprocessor.h"
+#include "header/mrp_audioaccessor.h"
+#include "WDL/jnetlib/httpget.h"

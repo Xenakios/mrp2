@@ -1,10 +1,21 @@
+/*
+Available controls:
+	- WinButton
+	- WinLabel
+	- WinCheckBox
+	- WinLineEdit
+	- WinComboBox
+	- WinListBox
+	- ReaSlider
+*/
+
 #pragma once
 
 #ifdef _WIN32
 #include <windows.h>
-#include "WDL/WDL/win32_utf8.h"
+#include "WDL/win32_utf8.h"
 #else
-#include "WDL/WDL/swell/swell.h"
+#include "WDL/swell/swell.h"
 #endif
 
 #include <string>
@@ -123,8 +134,17 @@ class WinLabel : public WinControl
 public:
 	WinLabel(MRPWindow* parent, std::string text, bool alignright=false);
 	void setText(std::string text);
+	std::string getText();	
+};
+
+class WinCheckBox : public WinControl
+{
+public:
+	WinCheckBox(MRPWindow* parent, std::string text = "", bool initval = false);
+	void setText(std::string text);
 	std::string getText();
-	
+	void setState(bool state);
+	bool getState();
 };
 
 class WinLineEdit : public WinControl
