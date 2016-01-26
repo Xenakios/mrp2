@@ -92,6 +92,16 @@ SimpleExampleWindow::SimpleExampleWindow(HWND parent, std::string title) : MRPWi
 	};
 	add_control(m_listbox1);
 	add_control(m_listbox1);
+	
+	m_checkbox1 = std::make_shared<WinCheckBox>(this,"The check box");
+	add_control(m_checkbox1);
+	m_checkbox1->GenericNotifyCallback = [this](GenericNotifications reason)
+	{
+		if (reason == GenericNotifications::Checked)
+			readbg() << "check box was checked\n";
+		else readbg() << "check box was unchecked\n";
+	};
+	
 	setSize(500, 500);
 }
 
@@ -144,7 +154,8 @@ void SimpleExampleWindow::resized()
 	m_but2->setBounds({ sz.getWidth()-105, 30 ,100,20 });
 	m_but3->setBounds({ 105, 30 ,120,20 });
 	m_but4->setBounds({ 230, 30 ,120,20 });
-	m_listbox1->setBounds({ 5, 55, sz.getWidth() - 10, sz.getHeight()-60 });
+	m_checkbox1->setBounds({ 5,60,120,30 });
+	//m_listbox1->setBounds({ 5, 55, sz.getWidth() - 10, sz.getHeight()-60 });
 }
 
 SliderBankWindow::SliderBankWindow(HWND parent) : MRPWindow(parent,"MRP Slider bank")

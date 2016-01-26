@@ -257,7 +257,7 @@ std::string WinLabel::getText()
 
 WinCheckBox::WinCheckBox(MRPWindow* parent, std::string text, bool initval) : WinControl(parent) {
 #ifdef WIN32
-	m_hwnd = CreateWindow("BUTTON", text.c_str(), BS_CHECKBOX, 0, 0, 10, 10, parent->getWindowHandle(),
+	m_hwnd = CreateWindow("BUTTON", text.c_str(), BS_AUTOCHECKBOX | WS_CHILD, 0, 0, 10, 10, parent->getWindowHandle(),
 		(HMENU)g_control_counter, g_hInst, 0);
 #else
 	m_hwnd = SWELL_MakeCheckBox(text.c_str(), g_control_counter, 0, 0, 10, 10, 0);
