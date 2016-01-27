@@ -362,24 +362,44 @@ namespace MRP
 			m_y = pt.y();
 		}
 
+		GenericPoint<T> getTopMiddle() const noexcept 
+		{
+			return GenericPoint<T>(m_x + (m_w/2), m_y);
+		}
+
 		GenericPoint<T> getTopRight() const noexcept
 		{
 			return GenericPoint<T>(m_x+m_w, m_y);
 		}
 
+		GenericPoint<T> getMiddleLeft() const noexcept 
+		{
+			return GenericPoint<T>(m_x, m_y + (m_h/2));
+		}
+
+		GenericPoint<T> getCenter() const noexcept 
+		{
+			return GenericPoint<T>(m_x + (m_w/2), m_y + (m_h/2));
+		}
+
+		GenericPoint<T> getMiddleRight() const noexcept 
+		{
+			return GenericPoint<T>(m_x+m_w, m_y + (m_h/2));
+		}
+
 		GenericPoint<T> getBottomLeft() const noexcept
 		{
-			return GenericPoint<T>(m_x, m_y+m_h);
+			return GenericPoint<T>(m_x, m_y + (m_h/2));
+		}
+
+		GenericPoint<T> getBottomMiddle() const noexcept 
+		{
+			return GenericPoint<T>(m_x + (m_w/2), m_y+m_h);
 		}
 
 		GenericPoint<T> getBottomRight() const noexcept
 		{
 			return GenericPoint<T>(m_x+m_w, m_y + m_h);
-		}
-
-		GenericPoint<T> getCenter() const noexcept
-		{
-			return GenericPoint<T>(m_x + (m_w/2), m_y + (m_h/2));
 		}
 
 		void setX(T x) { m_x = x; }
