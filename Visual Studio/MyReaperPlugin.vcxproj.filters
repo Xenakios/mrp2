@@ -62,6 +62,147 @@
     <ClCompile Include="..\..\WDL\WDL\jnetlib\util.cpp">
       <Filter>library\WDL\jnetlib</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\WDL\WDL\jpeglib\jcapimin.c">
+      <Filter>library\WDL\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\WDL\jpeglib\jcapistd.c">
+      <Filter>library\WDL\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\WDL\jpeglib\jccoefct.c">
+      <Filter>library\WDL\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\WDL\jpeglib\jccolor.c">
+      <Filter>library\WDL\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\WDL\jpeglib\jcdctmgr.c">
+      <Filter>library\WDL\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\WDL\jpeglib\jchuff.c">
+      <Filter>library\WDL\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\WDL\jpeglib\jcinit.c">
+      <Filter>library\WDL\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\WDL\jpeglib\jcmainct.c">
+      <Filter>library\WDL\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\WDL\jpeglib\jcmarker.c">
+      <Filter>library\WDL\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\WDL\jpeglib\jcmaster.c">
+      <Filter>library\WDL\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\WDL\jpeglib\jcomapi.c">
+      <Filter>library\WDL\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\WDL\jpeglib\jcparam.c">
+      <Filter>library\WDL\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\WDL\jpeglib\jcphuff.c">
+      <Filter>library\WDL\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\WDL\jpeglib\jcprepct.c">
+      <Filter>library\WDL\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\WDL\jpeglib\jcsample.c">
+      <Filter>library\WDL\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\WDL\jpeglib\jctrans.c">
+      <Filter>library\WDL\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\WDL\jpeglib\jdapimin.c">
+      <Filter>library\WDL\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\WDL\jpeglib\jdapistd.c">
+      <Filter>library\WDL\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\WDL\jpeglib\jdatadst.c">
+      <Filter>library\WDL\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\WDL\jpeglib\jdatasrc.c">
+      <Filter>library\WDL\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\WDL\jpeglib\jdcoefct.c">
+      <Filter>library\WDL\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\WDL\jpeglib\jdcolor.c">
+      <Filter>library\WDL\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\WDL\jpeglib\jddctmgr.c">
+      <Filter>library\WDL\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\WDL\jpeglib\jdhuff.c">
+      <Filter>library\WDL\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\WDL\jpeglib\jdinput.c">
+      <Filter>library\WDL\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\WDL\jpeglib\jdmainct.c">
+      <Filter>library\WDL\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\WDL\jpeglib\jdmarker.c">
+      <Filter>library\WDL\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\WDL\jpeglib\jdmaster.c">
+      <Filter>library\WDL\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\WDL\jpeglib\jdmerge.c">
+      <Filter>library\WDL\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\WDL\jpeglib\jdphuff.c">
+      <Filter>library\WDL\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\WDL\jpeglib\jdpostct.c">
+      <Filter>library\WDL\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\WDL\jpeglib\jdsample.c">
+      <Filter>library\WDL\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\WDL\jpeglib\jdtrans.c">
+      <Filter>library\WDL\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\WDL\jpeglib\jerror.c">
+      <Filter>library\WDL\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\WDL\jpeglib\jfdctflt.c">
+      <Filter>library\WDL\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\WDL\jpeglib\jfdctfst.c">
+      <Filter>library\WDL\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\WDL\jpeglib\jfdctint.c">
+      <Filter>library\WDL\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\WDL\jpeglib\jidctflt.c">
+      <Filter>library\WDL\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\WDL\jpeglib\jidctfst.c">
+      <Filter>library\WDL\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\WDL\jpeglib\jidctint.c">
+      <Filter>library\WDL\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\WDL\jpeglib\jidctred.c">
+      <Filter>library\WDL\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\WDL\jpeglib\jmemmgr.c">
+      <Filter>library\WDL\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\WDL\jpeglib\jmemnobs.c">
+      <Filter>library\WDL\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\WDL\jpeglib\jquant1.c">
+      <Filter>library\WDL\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\WDL\jpeglib\jquant2.c">
+      <Filter>library\WDL\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\WDL\jpeglib\jutils.c">
+      <Filter>library\WDL\jpeg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WDL\WDL\lice\lice_jpg.cpp">
+      <Filter>library\WDL\lice</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\main.hpp" />
@@ -137,6 +278,9 @@
     </Filter>
     <Filter Include="library\WDL\lice">
       <UniqueIdentifier>{da8ecdf5-15b1-42e5-a37f-e1e9631b023a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="library\WDL\jpeg">
+      <UniqueIdentifier>{98da9eca-1ded-428f-8981-2ab44f179838}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
