@@ -166,7 +166,8 @@ void SimpleExampleWindow::resized()
 	//m_but2->setBounds({ sz.getWidth()-105, 30 ,100,20 });
 	//m_but3->setBounds({ 105, 30 ,120,20 });
 	//m_but4->setBounds({ 230, 30 ,120,20 });
-	m_checkbox1->setBounds({ 5,60,120,30 });
+	//m_checkbox1->setBounds({ 5,60,120,30 });
+	m_checkbox1->setTopLeftPosition(5, 60);
 	m_listbox1->setBounds({ 5, 90, sz.getWidth() - 10, sz.getHeight()-90 });
 }
 
