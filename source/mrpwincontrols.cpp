@@ -36,6 +36,22 @@ void adjust_message_text_buffer(int size, bool fillzeros=true)
 		std::fill(g_messagetextsbuffer.begin(), g_messagetextsbuffer.end(), 0);
 }
 
+MRP::Size controlSizeFromText(HWND hwnd, const std::string& text)
+{
+	// The measured text size seems to be quite a bit wider than expected, no idea why, but shall 
+	// suffice for now.
+	if (text.size() > 0)
+	{
+		RECT r = { 0 };
+		DrawText(GetDC(hwnd), text.c_str(), -1, &r, DT_CALCRECT|DT_LEFT|DT_SINGLELINE);
+		if (r.right > r.left && r.bottom > r.top)
+		{
+			return MRP::Size(r.right-r.left , r.bottom + 5 );
+		}
+	}
+	return MRP::Size(16, 16);
+}
+
 WinControl::WinControl(MRPWindow* parent)
 {
 	m_parent = parent;
@@ -189,6 +205,8 @@ WinButton::WinButton(MRPWindow* parent, std::string text) :
 #endif
 	SendMessage(m_hwnd, WM_SETFONT, (WPARAM)g_defaultwincontrolfont, TRUE);
 	SetWindowText(m_hwnd, text.c_str());
+	m_default_size = controlSizeFromText(m_hwnd, text);
+	setSize(m_default_size.getWidth(), m_default_size.getHeight());
 	ShowWindow(m_hwnd, SW_SHOW);
 	GenericNotifyCallback = [this](GenericNotifications)
 	{
@@ -239,6 +257,8 @@ WinLabel::WinLabel(MRPWindow* parent, std::string text, bool alignright) : WinCo
 #endif
 	SendMessage(m_hwnd, WM_SETFONT, (WPARAM)g_defaultwincontrolfont, TRUE);
 	SetWindowText(m_hwnd, text.c_str());
+	m_default_size = controlSizeFromText(m_hwnd, text);
+	setSize(m_default_size.getWidth(), m_default_size.getHeight());
 	ShowWindow(m_hwnd, SW_SHOW);
 }
 // Slightly annoying redundancy here with the WinButton methods...

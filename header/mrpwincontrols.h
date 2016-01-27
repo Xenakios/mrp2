@@ -70,6 +70,15 @@ enum class GenericNotifications
 	Unchecked
 };
 
+enum class SizeHints
+{
+	Minimum,
+	Small,
+	Default,
+	Large,
+	Maximum
+};
+
 class WinControl
 {
 public:
@@ -90,7 +99,8 @@ public:
 	virtual void setTopLeftPosition(int x, int y);
 	virtual void setBounds(MRP::Rectangle geom);
 	virtual void setSize(int w, int h);
-	
+	virtual MRP::Size getSizeHint(SizeHints which = SizeHints::Default) const 
+	{ return m_default_size; }
 	
 	void setObjectName(std::string name);
 	const std::string& getObjectName() const { return m_object_name; }
@@ -119,6 +129,7 @@ protected:
 	int m_control_id = 0;
 	std::string m_object_name;
 	bool m_is_enabled = true;
+	MRP::Size m_default_size;
 };
 
 class WinButton : public WinControl
@@ -129,6 +140,7 @@ public:
 	std::string getText();
 	void setStringProperty(int which, std::string text) override;
 	bool handleMessage(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam);
+	
 };
 
 class WinLabel : public WinControl
@@ -137,6 +149,7 @@ public:
 	WinLabel(MRPWindow* parent, std::string text, bool alignright=false);
 	void setText(std::string text);
 	std::string getText();	
+	
 };
 
 class WinCheckBox : public WinControl
@@ -148,6 +161,7 @@ public:
 	void setState(bool state);
 	bool getState();
 	bool handleMessage(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam);
+	
 };
 
 class WinLineEdit : public WinControl
@@ -158,6 +172,7 @@ public:
 	std::string getText();
 	std::function<void(std::string)> TextCallback;
 	bool handleMessage(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam);
+	
 };
 
 class WinComboBox : public WinControl
@@ -173,6 +188,7 @@ public:
 	int userIDfromIndex(int index);
 	bool handleMessage(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam);
 	std::function<void(int)> SelectedChangedCallback;
+	
 private:
 	
 };
@@ -193,6 +209,7 @@ public:
 	std::string getItemText(int index);
 	int getSelectedIndex();
 	void setSelectedIndex(int index);
+	
 };
 
 class ReaSlider : public WinControl
@@ -207,6 +224,7 @@ public:
 	void setValueConverter(std::shared_ptr<IValueConverter> c);
 	double getFloatingPointProperty(int which) override;
 	void setFloatingPointProperty(int which, double v) override;
+	
 private:
 	std::shared_ptr<IValueConverter> m_val_converter;
 };

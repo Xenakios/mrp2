@@ -57,7 +57,7 @@ SimpleExampleWindow::SimpleExampleWindow(HWND parent, std::string title) : MRPWi
 	};
 	add_control(m_but3);
 	
-	m_but4 = std::make_shared<WinButton>(this, "Rem sel listbox item");
+	m_but4 = std::make_shared<WinButton>(this, "Remove selected listbox item foffoffooo");
 	m_but4->GenericNotifyCallback = [this](GenericNotifications)
 	{
 		int selindex = m_listbox1->getSelectedIndex();
@@ -102,6 +102,10 @@ SimpleExampleWindow::SimpleExampleWindow(HWND parent, std::string title) : MRPWi
 		else readbg() << "check box was unchecked\n";
 	};
 	
+	m_label1 = std::make_shared<WinLabel>(this, "Ok, will all this text be shown by default...? I wonder...");
+	add_control(m_label1);
+	m_label1->setTopLeftPosition(150, 60);
+
 	setSize(500, 500);
 }
 
@@ -150,12 +154,20 @@ void SimpleExampleWindow::resized()
 {
 	MRP::Size sz = getSize();
 	m_edit1->setBounds({ 5,5,sz.getWidth() - 10,20 });
-	m_but1->setBounds({ 5, 30 , 100 , 20 });
-	m_but2->setBounds({ sz.getWidth()-105, 30 ,100,20 });
-	m_but3->setBounds({ 105, 30 ,120,20 });
-	m_but4->setBounds({ 230, 30 ,120,20 });
+	int acc = 5;
+	m_but1->setTopLeftPosition(acc, 30);
+	acc += m_but1->getWidth() + 5;
+	m_but2->setTopLeftPosition(acc, 30);
+	acc += m_but2->getWidth() + 5;
+	m_but3->setTopLeftPosition(acc, 30);
+	acc += m_but3->getWidth() + 5;
+	m_but4->setTopLeftPosition(acc, 30);
+	//m_but1->setBounds({ 5, 30 , 100 , 20 });
+	//m_but2->setBounds({ sz.getWidth()-105, 30 ,100,20 });
+	//m_but3->setBounds({ 105, 30 ,120,20 });
+	//m_but4->setBounds({ 230, 30 ,120,20 });
 	m_checkbox1->setBounds({ 5,60,120,30 });
-	//m_listbox1->setBounds({ 5, 55, sz.getWidth() - 10, sz.getHeight()-60 });
+	m_listbox1->setBounds({ 5, 90, sz.getWidth() - 10, sz.getHeight()-90 });
 }
 
 SliderBankWindow::SliderBankWindow(HWND parent) : MRPWindow(parent,"MRP Slider bank")
