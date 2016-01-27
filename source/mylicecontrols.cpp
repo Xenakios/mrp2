@@ -1447,8 +1447,9 @@ void RectangleTestControl::paint(PaintEvent & ev)
 	for (auto& e : handles)
 	{
 		MRP::Point pt = m_rect.getNormalizedAnchorPoint(e);
-		MRP::Rectangle handlerect = { pt.x() + m_rect.getTopLeft().x(),pt.y() + m_rect.getTopLeft().y()
-		,handlesize,handlesize};
+		MRP::Rectangle handlerect = getHandleRectangle(e);
+		if (handlerect.isValid() == false)
+			continue;
 		if (m_hot_handle == e)
 			LICE_FillRect(ev.bm, handlerect.getTopLeft().x(), handlerect.getTopLeft().y(), handlesize, handlesize,
 			LICE_RGBA(0, 0, 0, 255));
@@ -1500,12 +1501,31 @@ MRP::Anchor RectangleTestControl::getHotHandle(int x, int y)
 	for (auto& e : handles)
 	{
 		MRP::Point pt = m_rect.getNormalizedAnchorPoint(e);
-		MRP::Rectangle handlerect = { pt.x() + m_rect.getTopLeft().x(),pt.y() + m_rect.getTopLeft().y()
-			,handlesize,handlesize };
+		MRP::Rectangle handlerect = getHandleRectangle(e);
+		if (handlerect.isValid() == false)
+			continue;
 		if (is_point_in_rect(x, y, handlerect.getX(), handlerect.getY(), handlerect.getWidth(), handlerect.getHeight()) == true)
 		{
 			return e;
 		}
 	}
 	return MRP::Anchor::None;
+}
+
+MRP::Rectangle RectangleTestControl::getHandleRectangle(MRP::Anchor a)
+{
+	const int x = m_rect.getX();
+	const int y = m_rect.getY();
+	if (a == MRP::Anchor::TopLeft)
+		return{ x,y,m_handlesize,m_handlesize };
+	if (a == MRP::Anchor::TopRight)
+		return{ x+m_rect.getWidth()-m_handlesize,y,m_handlesize,m_handlesize };
+	if (a == MRP::Anchor::BottomLeft)
+		return{ x,y+m_rect.getHeight()-m_handlesize,m_handlesize,m_handlesize };
+	if (a == MRP::Anchor::BottomRight)
+		return{ x+m_rect.getWidth()-m_handlesize ,y+m_rect.getHeight() - m_handlesize,m_handlesize,m_handlesize };
+	if (a == MRP::Anchor::MiddleMiddle)
+		return{ x + m_rect.getWidth()/2 - m_handlesize/2 ,
+		y + m_rect.getHeight()/2 - m_handlesize/2,m_handlesize,m_handlesize };
+	return MRP::Rectangle();
 }

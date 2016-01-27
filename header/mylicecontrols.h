@@ -339,4 +339,6 @@ private:
 	MRP::Anchor m_hot_handle = MRP::Anchor::None;
 	MRP::Anchor getHotHandle(int x, int y);
 	std::shared_ptr<LICE_IBitmap> m_image;
+	int m_handlesize = 10;
+	MRP::Rectangle getHandleRectangle(MRP::Anchor a);
 };
