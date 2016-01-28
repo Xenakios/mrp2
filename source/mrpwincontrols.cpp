@@ -287,6 +287,9 @@ WinCheckBox::WinCheckBox(MRPWindow* parent, std::string text, bool initval) : Wi
 #endif
 	SendMessage(m_hwnd, WM_SETFONT, (WPARAM)g_defaultwincontrolfont, TRUE);
 	SetWindowText(m_hwnd, text.c_str());
+	MRP::Size sz = controlSizeFromText(m_hwnd, text);
+	m_default_size = { sz.getWidth(),sz.getHeight() + 10 };
+	setSize(m_default_size.getWidth(), m_default_size.getHeight());
 	ShowWindow(m_hwnd, SW_SHOW);
 	GenericNotifyCallback = [this](GenericNotifications) { };
 };

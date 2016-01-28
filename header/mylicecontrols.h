@@ -323,3 +323,22 @@ private:
 	Timer m_timer;
 	LICE_CachedFont m_font;
 };
+
+class RectangleTestControl : public LiceControl
+{
+public:
+	RectangleTestControl(MRPWindow* parent);
+	void paint(PaintEvent& ev) override;
+	void mousePressed(const MouseEvent& ev) override;
+	void mouseMoved(const MouseEvent& ev) override;
+	void mouseReleased(const MouseEvent& ev) override;
+	std::string getType() const override { return "RectangleTestControl"; }
+private:
+	MRP::Rectangle m_rect;
+	bool m_mousedown = false;
+	MRP::Anchor m_hot_handle = MRP::Anchor::None;
+	MRP::Anchor getHotHandle(int x, int y);
+	std::shared_ptr<LICE_IBitmap> m_image;
+	int m_handlesize = 10;
+	MRP::Rectangle getHandleRectangle(MRP::Anchor a);
+};

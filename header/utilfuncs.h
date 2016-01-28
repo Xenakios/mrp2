@@ -287,7 +287,7 @@ namespace MRP
 {
 	enum class Anchor
 	{
-		TopLeft, TopMiddle, TopRight,
+		None,TopLeft, TopMiddle, TopRight,
 		MiddleLeft, MiddleMiddle, MiddleRight,
 		BottomLeft, BottomMiddle, BottomRight
 	};
@@ -356,12 +356,6 @@ namespace MRP
 			return GenericPoint<T>(m_x, m_y);
 		}
 
-		void setTopLeft(GenericPoint<T> pt)
-		{
-			m_x = pt.x();
-			m_y = pt.y();
-		}
-
 		GenericPoint<T> getTopMiddle() const noexcept 
 		{
 			return GenericPoint<T>(m_x + (m_w/2), m_y);
@@ -402,10 +396,6 @@ namespace MRP
 			return GenericPoint<T>(m_x+m_w, m_y + m_h);
 		}
 
-		void setX(T x) { m_x = x; }
-		void setY(T y) { m_y = y;  }
-		void setWidth(T w) { m_w = w;  }
-		void setHeight(T h) { m_h = h;  }
 		GenericRectangle<T> resized(T w, T h)
 		{
 			return GenericRectangle<T>(m_x, m_y, w, h);
@@ -429,6 +419,58 @@ namespace MRP
 		GenericRectangle<T> withHorizontalMargins(T margin)
 		{
 			return GenericRectangle<T>(m_x + margin, m_y, m_w - 2 * margin, m_h);
+		}
+		GenericPoint<T> getNormalizedAnchorPoint(Anchor anc)
+		{
+			if (anc == Anchor::TopLeft)
+				return{ 0,0 };
+			else if (anc == Anchor::TopMiddle)
+				return{ m_w / 2,0 };
+			else if (anc == Anchor::TopRight)
+				return{ m_w,0 };
+			else if (anc == Anchor::MiddleLeft)
+				return{ 0, m_h / 2 };
+			else if (anc == Anchor::MiddleMiddle)
+				return{ m_w / 2, m_h / 2 };
+			else if (anc == Anchor::MiddleRight)
+				return{ m_w, m_h / 2 };
+			else if (anc == Anchor::BottomLeft)
+				return{ 0, m_h };
+			else if (anc == Anchor::BottomMiddle)
+				return{ m_w / 2,m_h };
+			else if (anc == Anchor::BottomRight)
+				return{ m_w,m_h };
+			return{ 0,0 };
+		}
+		template<typename U>
+		GenericRectangle<T> movedByPoint(Anchor anc, U x, U y)
+		{
+			auto anchor_pt = getNormalizedAnchorPoint(anc);
+			return GenericRectangle<T>(x + anchor_pt.x(), y + anchor_pt.y(), m_w, m_h);
+		}
+		template<typename U>
+		GenericRectangle<T> adjustedByPoint(Anchor anc, U x, U y)
+		{
+			if (anc == Anchor::TopRight)
+				return GenericRectangle<T>(m_x, y , x - m_x, m_h + (m_y - y));
+			if (anc == Anchor::BottomRight)
+				return GenericRectangle<T>(m_x, m_y, x - m_x, y-m_y);
+			if (anc == Anchor::TopLeft)
+				return GenericRectangle<T>(x, y, m_w+(m_x-x), m_h + (m_y - y));
+			if (anc == Anchor::BottomLeft)
+				return GenericRectangle<T>(x, m_y, m_w + (m_x - x), y-m_y);
+			if (anc == Anchor::MiddleLeft)
+				return GenericRectangle<T>(x, m_y, m_w + (m_x - x), m_h);
+			if (anc == Anchor::MiddleRight)
+				return GenericRectangle<T>(m_x, m_y, x - m_x, m_h);
+			if (anc == Anchor::TopMiddle)
+				return GenericRectangle<T>(m_x, y, m_w, m_h+(m_y-y));
+			if (anc == Anchor::BottomMiddle)
+				return GenericRectangle<T>(m_x, m_y, m_w, y-m_y);
+			if (anc == Anchor::MiddleMiddle)
+				return GenericRectangle<T>(x-(m_w/2), y-(m_h/2), m_w,m_h);
+			return *this;
+			
 		}
 		static GenericRectangle<T> anchoredToBottomOf(const GenericRectangle<T>& g,
 			T x, T w, T h, T offset_from_bottom)

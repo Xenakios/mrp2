@@ -1422,3 +1422,110 @@ void ProgressControl::setProgressValue(double v)
 	v = bound_value(0.0, v, 1.0);
 	m_progress_val.store(v);
 }
+
+RectangleTestControl::RectangleTestControl(MRPWindow* parent) :
+	LiceControl(parent)
+{
+	m_rect = { 10,10,490,490 };
+	m_image = std::shared_ptr<LICE_IBitmap>(LICE_LoadJPG("C:/Net_Downloads/08112015/bitch-please.jpg"));
+}
+
+void RectangleTestControl::paint(PaintEvent & ev)
+{
+	LICE_Clear(ev.bm, LICE_RGBA(0, 0, 0, 255));
+	if (m_image != nullptr)
+	{
+		LICE_Blit(ev.bm, m_image.get(), m_rect.getX(), m_rect.getY(), 
+			m_rect.getX(), m_rect.getY(), m_rect.getWidth(), m_rect.getHeight(),1.0f,0);
+	}
+	//LICE_FillRect(ev.bm, m_rect.getTopLeft().x(), m_rect.getTopLeft().y(),
+	//	m_rect.getWidth(), m_rect.getHeight(), LICE_RGBA(255, 255, 255, 255), 0.75f, 0);
+	const static std::vector<MRP::Anchor> handles = { MRP::Anchor::TopLeft,MRP::Anchor::TopRight,
+		MRP::Anchor::BottomLeft,MRP::Anchor::BottomRight,MRP::Anchor::MiddleLeft,
+		MRP::Anchor::MiddleRight,MRP::Anchor::MiddleMiddle,MRP::Anchor::TopMiddle, MRP::Anchor::BottomMiddle };
+	const int handlesize = 10;
+	for (auto& e : handles)
+	{
+		MRP::Point pt = m_rect.getNormalizedAnchorPoint(e);
+		MRP::Rectangle handlerect = getHandleRectangle(e);
+		if (handlerect.isValid() == false)
+			continue;
+		if (m_hot_handle == e)
+			LICE_FillRect(ev.bm, handlerect.getTopLeft().x(), handlerect.getTopLeft().y(), handlesize, handlesize,
+			LICE_RGBA(0, 0, 0, 255));
+		else LICE_FillRect(ev.bm, handlerect.getTopLeft().x(), handlerect.getTopLeft().y(), handlesize, handlesize,
+			LICE_RGBA(255, 255, 255, 255));
+
+	}
+}
+
+void RectangleTestControl::mousePressed(const MouseEvent & ev)
+{
+	m_mousedown = true;
+}
+
+void RectangleTestControl::mouseMoved(const MouseEvent & ev)
+{
+	if (m_mousedown == true)
+	{
+		if (m_hot_handle != MRP::Anchor::None)
+		{
+			m_rect=m_rect.adjustedByPoint(m_hot_handle, ev.m_x, ev.m_y);
+			repaint();
+		}
+	}
+	else
+	{
+		auto foo = getHotHandle(ev.m_x, ev.m_y);
+		if (foo != m_hot_handle)
+		{
+			m_hot_handle = foo;
+			repaint();
+		}
+	}
+}
+
+void RectangleTestControl::mouseReleased(const MouseEvent & ev)
+{
+	m_mousedown = false;
+	m_hot_handle = MRP::Anchor::None;
+	repaint();
+}
+
+MRP::Anchor RectangleTestControl::getHotHandle(int x, int y)
+{
+	const static std::vector<MRP::Anchor> handles = { MRP::Anchor::TopLeft,MRP::Anchor::TopRight,
+		MRP::Anchor::BottomLeft,MRP::Anchor::BottomRight,MRP::Anchor::MiddleLeft, 
+		MRP::Anchor::MiddleRight,MRP::Anchor::MiddleMiddle,MRP::Anchor::TopMiddle, MRP::Anchor::BottomMiddle };
+	const int handlesize = 10;
+	for (auto& e : handles)
+	{
+		MRP::Point pt = m_rect.getNormalizedAnchorPoint(e);
+		MRP::Rectangle handlerect = getHandleRectangle(e);
+		if (handlerect.isValid() == false)
+			continue;
+		if (is_point_in_rect(x, y, handlerect.getX(), handlerect.getY(), handlerect.getWidth(), handlerect.getHeight()) == true)
+		{
+			return e;
+		}
+	}
+	return MRP::Anchor::None;
+}
+
+MRP::Rectangle RectangleTestControl::getHandleRectangle(MRP::Anchor a)
+{
+	const int x = m_rect.getX();
+	const int y = m_rect.getY();
+	if (a == MRP::Anchor::TopLeft)
+		return{ x,y,m_handlesize,m_handlesize };
+	if (a == MRP::Anchor::TopRight)
+		return{ x+m_rect.getWidth()-m_handlesize,y,m_handlesize,m_handlesize };
+	if (a == MRP::Anchor::BottomLeft)
+		return{ x,y+m_rect.getHeight()-m_handlesize,m_handlesize,m_handlesize };
+	if (a == MRP::Anchor::BottomRight)
+		return{ x+m_rect.getWidth()-m_handlesize ,y+m_rect.getHeight() - m_handlesize,m_handlesize,m_handlesize };
+	if (a == MRP::Anchor::MiddleMiddle)
+		return{ x + m_rect.getWidth()/2 - m_handlesize/2 ,
+		y + m_rect.getHeight()/2 - m_handlesize/2,m_handlesize,m_handlesize };
+	return MRP::Rectangle();
+}

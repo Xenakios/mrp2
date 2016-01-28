@@ -19,6 +19,7 @@ private:
 	std::shared_ptr<WinButton> m_but3;
 	std::shared_ptr<WinButton> m_but4;
 	std::shared_ptr<WinListBox> m_listbox1;
+	std::shared_ptr<RectangleTestControl> m_rectcontrol1;
 	std::shared_ptr<WinCheckBox> m_checkbox1;
 	std::shared_ptr<WinLabel> m_label1;
 	std::unordered_map<int, MediaItem*> m_itemmap;
