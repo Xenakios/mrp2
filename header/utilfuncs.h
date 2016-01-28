@@ -9,7 +9,9 @@
 #include <string>
 #include <vector>
 #include "WDL/lice/lice.h"
+#ifdef MRP_BUILD_REAPER_PLUGIN
 #include "reaper_plugin_functions.h"
+#endif
 #ifdef WIN32
 #include "ppl.h"
 #else
@@ -84,7 +86,7 @@ inline auto get_from_map(Cont& c, const Key& k)
 		return c[k];
 	return typename Cont::mapped_type();
 }
-
+#ifdef MRP_BUILD_REAPER_PLUGIN
 std::string is_source_audio(PCM_source* src);
 
 struct create_item_result
@@ -147,7 +149,7 @@ public:
 };
 
 void set_readbg_decimals(int decims);
-
+#endif
 void start_or_stop_main_thread_executor(bool stop);
 void execute_in_main_thread(std::function<void(void)> f);
 
@@ -218,7 +220,7 @@ private:
 			m_x = std::make_shared<T>(*m_x);
 	}
 };
-
+#ifdef MRP_BUILD_REAPER_PLUGIN
 class reaper_track_range
 {
 public:
@@ -277,6 +279,7 @@ public:
 private:
 	ReaProject* m_proj = nullptr;
 };
+#endif
 
 inline bool fuzzy_compare(double p1, double p2)
 {

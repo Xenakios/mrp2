@@ -157,7 +157,7 @@ MRPWindow::ModalResult MRPModalDialog::runModally()
 	m_is_modal = true;
 #ifdef WIN32
 	MyDLGTEMPLATE t;
-	t.style = DS_SETFONT | DS_FIXEDSYS | WS_CAPTION | WS_SYSMENU;
+	t.style = DS_SETFONT | DS_FIXEDSYS | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME;
 	t.cx = 200;
 	t.cy = 100;
 	DialogBoxIndirectParam(g_hInst, &t, m_parent_hwnd, dlgproc, (LPARAM)this);

@@ -469,8 +469,6 @@ WinComboBox::WinComboBox(MRPWindow* parent) : WinControl(parent)
 	m_hwnd = SWELL_MakeCombo(g_control_counter,0,0,20,20, WS_CHILD | WS_TABSTOP | CBS_DROPDOWNLIST);
 	SetParent(m_hwnd, parent->getWindowHandle());
 #endif
-	if (m_hwnd == NULL)
-		readbg() << "ComboBox could not be created\n";
 	SendMessage(m_hwnd, WM_SETFONT, (WPARAM)g_defaultwincontrolfont, TRUE);
 	ShowWindow(m_hwnd, SW_SHOW);
 }
@@ -551,9 +549,6 @@ WinListBox::WinListBox(MRPWindow* parent) : WinControl(parent)
 	m_hwnd = SWELL_MakeListBox(g_control_counter, 0, 0, 20, 20, LVS_SINGLESEL | WS_CHILD | WS_TABSTOP);
 	SetParent(m_hwnd, parent->getWindowHandle());
 #endif
-	if (m_hwnd == NULL)
-		readbg() << "ListBox could not be created\n";
-	
 	SendMessage(m_hwnd, WM_SETFONT, (WPARAM)g_defaultwincontrolfont, TRUE);
 	ShowWindow(m_hwnd, SW_SHOW);
 }

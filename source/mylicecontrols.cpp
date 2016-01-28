@@ -966,6 +966,8 @@ void EnvelopeControl::setEnabled(bool b)
 	WinControl::setEnabled(b);
 }
 
+//#define USE_BINARY_SEARCH_FOR_ENVELOPE_POINT_FIND
+
 std::pair<int, int> EnvelopeControl::find_hot_envelope_point(double xcor, double ycor)
 {
 	if (m_envs.empty() == true)
@@ -973,6 +975,11 @@ std::pair<int, int> EnvelopeControl::find_hot_envelope_point(double xcor, double
 	for (int j = m_envs.size()-1; j >= 0 ; --j)
 	{
 		breakpoint_envelope* m_env = m_envs[j].get();
+#ifdef USE_BINARY_SEARCH_FOR_ENVELOPE_POINT_FIND
+		//double pt_x = map_value(xcor,0.0,(double)getWidth(),
+		//	m_env->get_point(0).get_x(),m_env->get_point()
+		//envbreakpoint pt_to_find()
+#else
 		for (int i = 0; i < m_env->get_num_points(); ++i)
 		{
 			const envbreakpoint& pt = m_env->get_point(i);
@@ -983,7 +990,9 @@ std::pair<int, int> EnvelopeControl::find_hot_envelope_point(double xcor, double
 				return{ j,i };
 			}
 		}
+#endif
 	}
+
 	return{ -1,-1 };
 }
 

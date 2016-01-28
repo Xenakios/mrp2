@@ -49,7 +49,7 @@ private:
 	void shift_points(double x, double y);
 	LICE_CachedFont m_font;
 };
-
+#ifdef MRP_BUILD_REAPER_PLUGIN
 class WaveformPainter
 {
 public:
@@ -155,7 +155,8 @@ private:
 	PCM_source_peaktransfer_t m_peaks_transfer = { 0 };
 	
 };
-
+#endif
+#ifdef MRP_BUILD_REAPER_PLUGIN
 class WaveformControl : public LiceControl
 {
 public:
@@ -191,6 +192,9 @@ private:
 	bool m_use_reaper_peaks_drawing = false;
 	LICE_CachedFont m_font;
 };
+#endif
+
+class WaveformPainter;
 
 class EnvelopeControl : public LiceControl
 {

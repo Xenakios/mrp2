@@ -7,9 +7,10 @@
 std::unordered_map<HWND, LiceControl*> g_controlsmap;
 
 extern HINSTANCE g_hInst;
+#ifdef MRP_BUILD_REAPER_PLUGIN
 bool g_kbdhookinstalled = false;
 extern reaper_plugin_info_t* g_plugin_info;
-
+#endif
 // creates a plain child window (control).
 // wndProc will receive a WM_CREATE, but it will have lParam set to lParamContext rather than LPCREATESTRUCT
 // (lParam is passed directly on WM_CREATE in SWELL, this duplicates that behavior)
@@ -48,7 +49,7 @@ HWND SWELL_CreatePlainWindow(HINSTANCE hInstance, HWND parent, WNDPROC wndProc, 
 }
 
 HWND g_myfocuswindow;
-
+#ifdef MRP_BUILD_REAPER_PLUGIN
 int acProc(MSG *msg, accelerator_register_t *ctx)
 {
 	HWND myChildWindow = g_myfocuswindow; //*((HWND*)ctx->user);
@@ -72,17 +73,18 @@ static accelerator_register_t g_acRec =
 };
 
 bool g_acrecinstalled=false;
+#endif
 
 LiceControl::LiceControl(MRPWindow* parent) : WinControl(parent)
 {
 	m_hwnd = SWELL_CreatePlainWindow(g_hInst, parent->getWindowHandle(), wndproc, NULL);
 	if (m_hwnd == NULL)
 	{
-		readbg() << "Failed to create window for LiceControl " << this << "\n";
+		//readbg() << "Failed to create window for LiceControl " << this << "\n";
 		return;
 	}
 	m_parent = parent;
-
+#ifdef MRP_BUILD_REAPER_PLUGIN
 	m_acreg.isLocal = true;
 	m_acreg.translateAccel = acProc;
 	m_acreg.user = (void*)&m_hwnd;
@@ -93,7 +95,7 @@ LiceControl::LiceControl(MRPWindow* parent) : WinControl(parent)
 		
 		g_acrecinstalled = true;
 	}
-
+#endif
 	g_controlsmap[m_hwnd] = this;
 	m_bitmap = std::make_unique<LICE_SysBitmap>(200, 200);
 	setBounds({ 20, 60, 200, 200 });

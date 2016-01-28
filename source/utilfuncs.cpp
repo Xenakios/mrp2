@@ -1,5 +1,7 @@
 #include "header/utilfuncs.h"
 #include "WDL/lice/lice.h"
+
+#ifdef MRP_BUILD_REAPER_PLUGIN
 #include "reaper_plugin_functions.h"
 
 readbg::~readbg()
@@ -43,6 +45,8 @@ create_item_result create_item_with_take_and_source(MediaTrack * track, const ch
 	SetMediaItemTake_Source(result.take, result.src);
 	return result;
 }
+#endif
+
 
 UINT_PTR g_main_thread_exec_timer = 0;
 std::mutex g_main_thread_exec_mutex;

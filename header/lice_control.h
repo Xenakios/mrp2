@@ -11,7 +11,9 @@ class MRPWindow;
 
 #include "WDL/lice/lice.h"
 #include "WDL/lice/lice_text.h"
+#ifdef MRP_BUILD_REAPER_PLUGIN
 #include "reaper_plugin_functions.h"
+#endif
 #include <memory>
 #include <vector>
 #include <functional>
@@ -19,7 +21,9 @@ class MRPWindow;
 #include <array>
 #include "mrpwincontrols.h"
 
+#ifdef MRP_BUILD_REAPER_PLUGIN
 int acProc(MSG *msg, accelerator_register_t *ctx);
+#endif
 
 enum
 {
@@ -204,7 +208,9 @@ private:
 	static LRESULT WINAPI wndproc(HWND hwnd, UINT Message, WPARAM wParam, LPARAM lParam);
 	std::unique_ptr<LICE_SysBitmap> m_bitmap;
 	bool m_wants_focus = true;
+#ifdef MRP_BUILD_REAPER_PLUGIN
 	accelerator_register_t m_acreg;
+#endif
 	HCURSOR m_cursor = NULL;
 };
 
