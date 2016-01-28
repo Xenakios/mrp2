@@ -8,4 +8,6 @@
 #include "header/mrp_pcm_source.h"
 #include "header/xendynamicsprocessor.h"
 #include "header/mrp_audioaccessor.h"
+
 #include "WDL/jnetlib/httpget.h"
+#include "WDL/jnetlib/util.h"
