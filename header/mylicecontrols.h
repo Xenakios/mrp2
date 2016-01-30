@@ -257,7 +257,7 @@ protected:
 	bool m_enabled = true;
 	bool m_notify_on_point_move = true;
 };
-
+#ifdef MRP_BUILD_REAPER_PLUGIN
 class PitchBenderEnvelopeControl : public EnvelopeControl
 {
 public:
@@ -311,7 +311,7 @@ private:
 	int m_drag_start_x = 0;
 	bool m_mouse_down = false;
 };
-
+#endif
 class ProgressControl : public LiceControl
 {
 public:

@@ -2,7 +2,9 @@
 #include "header/utilfuncs.h"
 #include "WDL/lice/lice.h"
 #include "WDL/lineparse.h"
+#ifdef MRP_BUILD_REAPER_PLUGIN
 #include "reaper_plugin_functions.h"
+#endif
 #include <cmath>
 
 bool g_popupmenushowing = false;
@@ -68,7 +70,7 @@ int TestControl::find_hot_point(int x, int y)
 	}
 	return -1;
 }
-
+#ifdef MRP_BUILD_REAPER_PLUGIN
 void update_touched_fx(fx_param_t& entry)
 {
 	int trackout = 0;
@@ -82,6 +84,7 @@ void update_touched_fx(fx_param_t& entry)
 		//readbg() << trackout << " " << fxout << " " << paramout << "\n";
 	}
 }
+#endif
 
 void TestControl::mouseDoubleClicked(const MouseEvent &ev)
 {
@@ -102,39 +105,43 @@ void TestControl::mousePressed(const MouseEvent& ev)
 	}
 	if (ev.m_mb == MouseEvent::MBLeft && ev.m_modkeys.isModifierKeyDown(MKAppleOrWindowsKey) == true)
 	{
-		readbg() << "you pressed left button with Windows key down\n";
+		//readbg() << "you pressed left button with Windows key down\n";
 		return;
 	}
 	if (ev.m_mb == MouseEvent::MBLeft && ev.m_modkeys.isModifierKeyDown(MKControl) == true)
 	{
-		readbg() << "you pressed left button with control key down\n";
+		//readbg() << "you pressed left button with control key down\n";
 		return;
 	}
 	if (ev.m_mb == MouseEvent::MBLeft && ev.m_modkeys.isModifierKeyDown(MKShift) == true)
 	{
-		readbg() << "you pressed left button with shift key down\n";
+		//readbg() << "you pressed left button with shift key down\n";
 		m_mousedown = true;
 		return;
 	}
 	if (ev.m_mb == MouseEvent::MBLeft && ev.m_modkeys.isModifierKeyDown(MKAlt) == true)
 	{
-		readbg() << "you pressed left button with alt key down\n";
+		//readbg() << "you pressed left button with alt key down\n";
 		return;
 	}
 	if (ev.m_mb == MouseEvent::MBRight && ev.m_modkeys.areModifiersDown({ MKAlt, MKShift }))
 	{
-		readbg() << "you pressed right button with alt and shift keys down\n";
+		//readbg() << "you pressed right button with alt and shift keys down\n";
 		return;
 	}
 	if (ev.m_mb == MouseEvent::MBMiddle)
 	{
-		readbg() << "you pressed the middle button!\n";
+		//readbg() << "you pressed the middle button!\n";
 		return;
 	}
+#ifdef MRP_BUILD_REAPER_PLUGIN
 	if (ev.m_mb == MouseEvent::MBRight)
 	{
 		PopupMenu menu(getWindowHandle());
-		menu.add_menu_item("First action", [](PopupMenu::CheckState) { readbg() << "first action chosen\n"; });
+		menu.add_menu_item("First action", [](PopupMenu::CheckState) 
+		{ 
+			//readbg() << "first action chosen\n"; 
+		});
 		if (m_hot_point >= 0)
 		{
 			menu.add_menu_item("Control last touched parameter with X position", [this](PopupMenu::CheckState)
@@ -157,22 +164,23 @@ void TestControl::mousePressed(const MouseEvent& ev)
 		{
 			menu.add_menu_item(std::to_string(i + 1), [i](PopupMenu::CheckState)
 			{
-				readbg() << "You chose number " << i + 1 << "\n";
+				//readbg() << "You chose number " << i + 1 << "\n";
 			});
 		}
 		g_popupmenushowing = true;
 		menu.execute(ev.m_x, ev.m_y);
 		return;
 	}
+#endif
 	m_mousedown=true;
-	
+
 }
 
 void TestControl::mouseMoved(const MouseEvent& ev)
 {
 	if (m_mousedown == true && ev.m_modkeys.isModifierKeyDown(MKShift) == true)
 	{
-		readbg() << "mouse dragged with shift " << ev.m_x << " " << ev.m_y << "\n";
+		//readbg() << "mouse dragged with shift " << ev.m_x << " " << ev.m_y << "\n";
 		return;
 	}
 	if (m_mousedown==false)
@@ -240,7 +248,7 @@ bool TestControl::keyPressed(const ModifierKeys& modkeys, int keycode)
 {
 	if (keycode >= KEY_F1 && keycode <= KEY_F12)
 	{
-		readbg() << "F" << (keycode - KEY_F1)+1 << " pressed\n";
+		//readbg() << "F" << (keycode - KEY_F1)+1 << " pressed\n";
 	}
 	if (keycode == 'C' && modkeys.isModifierKeyDown(MKControl) == true)
 	{
@@ -308,7 +316,7 @@ fx_param_t * TestControl::getFXParamTarget(int index, int which)
 	}
 	return nullptr;
 }
-
+#ifdef MRP_BUILD_REAPER_PLUGIN
 WaveformControl::WaveformControl(MRPWindow* parent) : LiceControl(parent)
 {
 	setWantsFocus(true);
@@ -577,7 +585,7 @@ double WaveformControl::getFloatingPointProperty(int which)
 		return m_src->GetLength();
 	return 0.0;
 }
-
+#endif
 EnvelopeControl::EnvelopeControl(MRPWindow* parent) : LiceControl(parent)
 {
 	m_font.SetFromHFont(CreateFont(15, 0, 0, 0, FW_NORMAL, FALSE, FALSE, FALSE,
@@ -594,6 +602,7 @@ void EnvelopeControl::paint(PaintEvent& ev)
 		MRP_DrawTextHelper(bm, &m_font, "No envelope", 5, 5, bm->getWidth(), bm->getHeight());
 		return;
 	}
+#ifdef MRP_BUILD_REAPER_PLUGIN
 	if (m_wave_painter != nullptr)
 	{
 		if (m_wave_painter->getSource() != nullptr)
@@ -604,6 +613,7 @@ void EnvelopeControl::paint(PaintEvent& ev)
 		}
 		
 	}
+#endif
 	int envnameycor = 5;
 	if (m_text.empty() == false)
 	{
@@ -992,7 +1002,6 @@ std::pair<int, int> EnvelopeControl::find_hot_envelope_point(double xcor, double
 		}
 #endif
 	}
-
 	return{ -1,-1 };
 }
 
@@ -1003,6 +1012,8 @@ std::pair<int, int> EnvelopeControl::find_hot_envelope_segment(double xcor, doub
 	for (int j = m_envs.size() - 1; j >= 0; --j)
 	{
 		breakpoint_envelope* m_env = m_envs[j].get();
+		if (j != m_active_envelope)
+			continue;
 		for (int i = 0; i < m_env->get_num_points()-1; ++i)
 		{
 			const envbreakpoint& pt0 = m_env->get_point(i);
@@ -1041,7 +1052,7 @@ void EnvelopeControl::set_waveformpainter(std::shared_ptr<WaveformPainter> paint
 	m_wave_painter = painter;
 	repaint();
 }
-
+#ifdef MRP_BUILD_REAPER_PLUGIN
 bool PitchBenderEnvelopeControl::keyPressed(const ModifierKeys& modkeys, int keycode)
 {
 	if (keycode >= '1' && keycode <= '4')
@@ -1405,7 +1416,7 @@ ZoomScrollBar::hot_area ZoomScrollBar::get_hot_area(int x, int y)
 	return ha_none;
 
 }
-
+#endif
 ProgressControl::ProgressControl(MRPWindow * parent) : LiceControl(parent)
 {
 	m_font.SetFromHFont(CreateFont(16, 0, 0, 0, FW_NORMAL, FALSE, FALSE, FALSE,
@@ -1436,7 +1447,7 @@ RectangleTestControl::RectangleTestControl(MRPWindow* parent) :
 	LiceControl(parent)
 {
 	m_rect = { 10,10,490,490 };
-	m_image = std::shared_ptr<LICE_IBitmap>(LICE_LoadJPG("C:/Net_Downloads/08112015/bitch-please.jpg"));
+	//m_image = std::shared_ptr<LICE_IBitmap>(LICE_LoadJPG("C:/Net_Downloads/08112015/bitch-please.jpg"));
 }
 
 void RectangleTestControl::paint(PaintEvent & ev)
